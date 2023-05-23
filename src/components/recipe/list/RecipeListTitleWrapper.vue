@@ -9,15 +9,15 @@
         location="start"
         text="Switch display mode"
       >
-        <template #activator="{ props }">
+        <template #activator="{ props: propsActivator }">
           <v-btn
-            v-bind="props"
+            v-bind="propsActivator"
             color="primary"
             class="mr-md-4 mr-2 "
             flat
             min-width="0"
             :size="mobile ? 'small' : 'default'"
-            @click="$emit('update:tableView', !tableView)"
+            @click="$emit('update:tableView', !props.tableView)"
           >
             <v-icon>
               mdi-grid-large
@@ -47,7 +47,6 @@ import { useDisplay } from 'vuetify';
 
 const { mobile, xs } = useDisplay();
 
-// eslint-disable-next-line no-unused-vars
 const props = defineProps({
   tableView: {
     type: Boolean,

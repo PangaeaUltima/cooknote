@@ -1,6 +1,6 @@
 <template>
   <div :class="[tableView ? 'd-flex flex-column' : 'grid']">
-    <recipe-item
+    <recipe-list-item
       v-for="(item, index) in props.recipes"
       :key="item.idMeal"
       :class="{ 'mb-md-6 mb-3' : tableView && index !== props.recipes.length - 1 }"
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import RecipeItem from './RecipeItem.vue';
+import RecipeListItem from '@/components/recipe/list/RecipeListItem.vue';
 
 const props = defineProps({
   recipes: {
@@ -25,7 +25,7 @@ const props = defineProps({
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

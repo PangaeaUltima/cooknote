@@ -4,7 +4,7 @@
     v-else
     class="wrapper flex-grow-1"
   >
-    <recipe-title-wrapper
+    <recipe-list-title-wrapper
       v-model:table-view="tableView"
       class="mb-md-8 mb-4"
     />
@@ -19,8 +19,8 @@
 import { inject, onMounted, ref } from 'vue';
 import { useDisplay } from 'vuetify';
 import AppLoading from '@/components/app/AppLoading.vue';
-import RecipeTitleWrapper from '@/components/recipe/RecipeTitleWrapper.vue';
-import RecipeList from '@/components/recipe/RecipeList.vue';
+import RecipeListTitleWrapper from '@/components/recipe/list/RecipeListTitleWrapper.vue';
+import RecipeList from '@/components/recipe/list/RecipeList.vue';
 
 const api = inject('api');
 const loading = ref(true);

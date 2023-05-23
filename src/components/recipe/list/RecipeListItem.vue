@@ -8,9 +8,10 @@
       :class="{ 'pa-3' : tableView }"
     >
       <div class="wrapper-img">
-        <div class="category text-md-caption-d text-caption pa-1">
-          {{ props.recipe.strCategory }}
-        </div>
+        <recipe-features-list
+          class="features-list"
+          :features="recipeFeatures"
+        />
         <img
           :src="props.recipe.strMealThumb"
           :alt="`${props.recipe.strMeal} Image`"
@@ -74,6 +75,7 @@
 </template>
 
 <script setup>
+import RecipeFeaturesList from '@/components/recipe/RecipeFeaturesList.vue';
 import { computed, ref } from 'vue';
 import { useDisplay } from 'vuetify';
 import router from '@/router';
@@ -94,12 +96,21 @@ const props = defineProps({
 const mealIngredientsList = computed(() => {
   return Object.keys(props.recipe)
     .filter((key) => key.includes('strIngredient') && props.recipe[key])
-    .map((key) => props.recipe[key])
-})
+    .map((key) => props.recipe[key]);
+});
 
 const mealIngredientsListProcessed = computed(() => {
   const arr = [ ...mealIngredientsList.value ]
-  return showAllIngredients.value ? arr : arr.splice(0, 5)
+  return showAllIngredients.value ? arr : arr.splice(0, 5);
+});
+
+const recipeFeatures = computed(() => {
+  const arr = []
+
+  if (props.recipe.strCategory) arr.push(props.recipe.strCategory)
+  if (props.recipe.strArea) arr.push(props.recipe.strArea)
+
+  return arr
 });
 
 const openRecipePage = (id) => {
@@ -107,7 +118,7 @@ const openRecipePage = (id) => {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .recipe-item {
   transition: box-shadow 0.6s;
   transition: all 0.3s;
@@ -143,10 +154,8 @@ const openRecipePage = (id) => {
         object-fit: cover;
       }
 
-      .category {
-        border-radius: $border-radius-base;
+      .features-list {
         z-index: 9;
-        background: rgba(255, 255, 255, 0.9);
         position: absolute;
         top: 8px;
         right: 8px;
