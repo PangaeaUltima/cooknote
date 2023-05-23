@@ -1,0 +1,98 @@
+/**
+ * src/styles/settings.scss
+ *
+ * Configures SASS variables and Vuetify overwrites
+ */
+
+// https://vuetifyjs.com/features/sass-variables/`
+// @use 'vuetify/settings' with (
+//   $color-pack: false
+// );
+
+$main-font-family: "Inter", sans-serif;
+
+@use 'vuetify' with (
+  $body-font-family: $main-font-family,
+  $typography: (
+        'h1-d': (
+                'size': 20px,
+                'weight': 600,
+                'line-height': 24px,
+                'letter-spacing': 0.04em,
+                'font-family': $main-font-family,
+                'text-transform': false
+        ),
+        'h1': (
+                'size': 14px,
+                'weight': 600,
+                'line-height': 16px,
+                'letter-spacing': 0.04em,
+                'font-family': $main-font-family,
+                'text-transform': false
+        ),
+        'primary-medium-d': (
+                'size': 16px,
+                'weight': 500,
+                'line-height': 20px,
+                'letter-spacing': 0.02em,
+                'font-family': $main-font-family,
+                'text-transform': false
+        ),
+        'primary-medium': (
+                'size': 14px,
+                'weight': 500,
+                'line-height': 16px,
+                'letter-spacing': 0.02em,
+                'font-family': $main-font-family,
+                'text-transform': false
+        ),
+        'secondary-bold-d': (
+                'size': 12px,
+                'weight': 700,
+                'line-height': 14px,
+                'letter-spacing': 0.02em,
+                'font-family': $main-font-family,
+                'text-transform': false,
+        ),
+        'secondary-bold': (
+                'size': 12px,
+                'weight': 700,
+                'line-height': 14px,
+                'letter-spacing': 0.02em,
+                'font-family': $main-font-family,
+                'text-transform': false,
+        ),
+        'btn-d': (
+                'size': 12px,
+                'weight': 600,
+                'line-height': 12px,
+                'letter-spacing': 0.08em,
+                'font-family': $main-font-family,
+                'text-transform': uppercase
+        ),
+        'btn': (
+                'size': 10px,
+                'weight': 600,
+                'line-height': 10px,
+                'letter-spacing': 0.08em,
+                'font-family': $main-font-family,
+                'text-transform': uppercase
+        ),
+        'caption-d': (
+                'size': 12px,
+                'weight': 500,
+                'line-height': 14px,
+                'letter-spacing': normal,
+                'font-family': $main-font-family,
+                'text-transform': false
+        ),
+        'caption': (
+                'size': 10px,
+                'weight': 500,
+                'line-height': 12px,
+                'letter-spacing': normal,
+                'font-family': $main-font-family,
+                'text-transform': false
+        ),
+  )
+)

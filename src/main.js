@@ -6,6 +6,9 @@
 
 // Components
 import App from './App.vue'
+// import axios from 'axios'
+import api from '@/plugins/api'
+import '@/assets/scss/main.scss'
 
 // Composables
 import { createApp } from 'vue'
@@ -14,6 +17,8 @@ import { createApp } from 'vue'
 import { registerPlugins } from '@/plugins'
 
 const app = createApp(App)
+
+app.use(api, { api })
 
 registerPlugins(app)
 

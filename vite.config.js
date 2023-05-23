@@ -8,6 +8,13 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "@/assets/scss/variables.scss"; @import "@/assets/scss/mixins.scss";'
+      }
+    }
+  },
   plugins: [
     vue({ 
       template: { transformAssetUrls }
@@ -16,7 +23,8 @@ export default defineConfig({
     vuetify({
       autoImport: true,
       styles: {
-        configFile: 'src/styles/settings.scss',
+        configFile: 'src/assets/scss/vuetify-settings.scss',
+        // configFile: 'src/assets/scss/variables.scss',
       },
     }),
   ],
