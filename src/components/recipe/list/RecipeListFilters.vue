@@ -4,7 +4,7 @@
       v-model="filters.search"
       v-single-letter
       color="primary"
-      label="Search by title"
+      label="Search by first letter"
       :density="xs ? 'compact' : 'comfortable'"
       hide-details="auto"
       variant="outlined"
@@ -46,5 +46,10 @@ const filters = computed({
   display: grid;
   grid-gap: 0 16px;
   grid-template-columns: repeat(3, 1fr);
+
+  @include sm-and-down {
+    grid-gap: 8px 0;
+    grid-template-columns: 1fr;
+  }
 }
 </style>

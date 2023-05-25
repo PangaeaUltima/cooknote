@@ -8,31 +8,31 @@
     line-height: 14px;
   }
 
-  .v-input {
-    .v-input__control {
-      .v-field {
-        .v-field__field {
-          .v-label, .v-field__input {
-            font-size: 16px;
-            line-height: 20px;
-            letter-spacing: 0.02em;
-          }
-        }
-      }
-    }
+  // .v-input {
+  //   .v-input__control {
+  //     .v-field {
+  //       .v-field__field {
+  //         .v-label, .v-field__input {
+  //           font-size: 16px;
+  //           line-height: 20px;
+  //           letter-spacing: 0.02em;
+  //         }
+  //       }
+  //     }
+  //   }
 
-    @include xs-only {
-      .v-input__control {
-        .v-field {
-          .v-field__field {
-            .v-label, .v-field__input {
-              font-size: 12px;
-              line-height: 14px;
-              letter-spacing: 0.02em;
-            }
-          }
-        }
-      }
-    }
-  }
+  //   @include xs-only {
+  //     .v-input__control {
+  //       .v-field {
+  //         .v-field__field {
+  //           .v-label, .v-field__input {
+  //             font-size: 12px;
+  //             line-height: 14px;
+  //             letter-spacing: 0.02em;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }

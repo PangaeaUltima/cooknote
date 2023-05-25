@@ -45,8 +45,6 @@ let meal = ref(null)
 let modalContentMaxHeight = ref(600);
 
 onBeforeUnmount(() => {
-  loadMealInfo()
-  calcModalContentMaxHeight();
   window.removeEventListener('resize', calcModalContentMaxHeight);
 });
 
@@ -63,7 +61,12 @@ const recipeInfo = computed(() => {
 })
 
 watch(() => props.showModal, (newVal) => {
-  newVal ? loadMealInfo() : meal.value = null
+  if (newVal) {
+    calcModalContentMaxHeight();
+    loadMealInfo();
+  } else {
+    meal.value = null
+  }
 })
 
 const loadMealInfo = async () => {
