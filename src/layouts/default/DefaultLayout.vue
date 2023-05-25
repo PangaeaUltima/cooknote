@@ -39,10 +39,10 @@ const onScroll = (e) => {
 }
 
 .v-main {
-  padding-top: 54px;
+  padding-top: 70px;
 
   @include sm-and-down {
-    padding-top: 34px;
+    padding-top: 50px;
   }
 }
 </style>

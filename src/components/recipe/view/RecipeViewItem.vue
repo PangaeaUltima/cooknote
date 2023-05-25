@@ -7,7 +7,7 @@
       >
         <div
           class="wrapper-img"
-          :class="{ 'mb-md-3 mb-2': props.recipe.strYoutube }"
+          :class="{ 'mb-md-3 mb-2': recipe.strYoutube }"
         >
           <recipe-features-list
             class="recipe-features"
@@ -21,7 +21,7 @@
             show-arrows="hover"
           >
             <v-carousel-item
-              :src="props.recipe.strMealThumb"
+              :src="recipe.strMealThumb"
               cover
               eager
             />
@@ -34,14 +34,15 @@
             />
           </v-carousel>
         </div>
-        <v-tooltip v-if="props.recipe.strYoutube">
+        <v-tooltip v-if="recipe.strYoutube">
           <template #activator="{ props: propsActivator }">
             <v-btn
               v-bind="propsActivator"
               color="primary"
               block
               flat
-              @click="openVideo(props.recipe.strYoutube, '_blank')"
+              :size="mobile ? 'small' : 'default'"
+              @click="openVideo(recipe.strYoutube, '_blank')"
             >
               Watch video
             </v-btn>
@@ -80,7 +81,7 @@
         Recipe
       </p>
       <p>
-        {{ props.recipe.strInstructions }}
+        {{ recipe.strInstructions }}
       </p>
     </div>
   </div>
@@ -91,7 +92,7 @@ import RecipeFeaturesList from '@/components/recipe/RecipeFeaturesList.vue';
 import { computed } from 'vue';
 import { useDisplay } from 'vuetify';
 
-const { xs } = useDisplay();
+const { mobile, xs } = useDisplay();
 const props = defineProps({
   recipe: {
     type: Object,

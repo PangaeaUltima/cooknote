@@ -1,6 +1,6 @@
 <template>
   <header class="d-flex align-center px-4">
-    <div class="d-flex align-center justify-space-between">
+    <div class="d-flex align-center justify-center flex-grow-1">
       <router-link
         class="logo-link text--primary d-flex"
         to="/"

@@ -9,20 +9,24 @@
     >
       <div class="wrapper-img">
         <recipe-features-list
+          v-if="recipeFeatures.length"
           class="features-list"
           :features="recipeFeatures"
         />
         <img
-          :src="props.recipe.strMealThumb"
-          :alt="`${props.recipe.strMeal} Image`"
+          :src="recipe.strMealThumb"
+          :alt="`${recipe.strMeal} Image`"
         >
       </div>
     </div>
     <div class="d-flex flex-column flex-grow-1 pa-md-4 pa-2">
       <p class="text-md-primary-medium-d text-primary-medium mb-md-3 mb-2">
-        {{ props.recipe.strMeal }}
+        {{ recipe.strMeal }}
       </p>
-      <div class="wrapper-chips d-flex flex-wrap align-center mb-md-3 mb-2">
+      <div
+        v-if="mealIngredientsListProcessed.length"
+        class="wrapper-chips d-flex flex-wrap align-center mb-md-3 mb-2"
+      >
         <v-chip
           v-for="item in mealIngredientsListProcessed"
           :key="item"
@@ -54,6 +58,7 @@
             class="text-md-btn-d text-btn"
             block
             :size="mobile ? 'small' : 'default'"
+            @click="$emit('show-modal-recipe', recipe)"
           >
             Quick view
           </v-btn>
@@ -64,7 +69,7 @@
             class="text-md-btn-d text-btn"
             block
             :size="mobile ? 'small' : 'default'"
-            @click="openRecipePage(props.recipe.idMeal)"
+            @click="openRecipePage(recipe.idMeal)"
           >
             Recipe page
           </v-btn>
@@ -79,9 +84,9 @@ import RecipeFeaturesList from '@/components/recipe/RecipeFeaturesList.vue';
 import { computed, ref } from 'vue';
 import { useDisplay } from 'vuetify';
 import router from '@/router';
-let showAllIngredients = ref(false);
 
 const { mobile } = useDisplay()
+defineEmits(['show-modal-recipe'])
 const props = defineProps({
   recipe: {
     type: Object,
@@ -93,11 +98,14 @@ const props = defineProps({
   }
 });
 
+let showAllIngredients = ref(false);
+
 const mealIngredientsList = computed(() => {
   return Object.keys(props.recipe)
     .filter((key) => key.includes('strIngredient') && props.recipe[key])
     .map((key) => props.recipe[key]);
 });
+
 
 const mealIngredientsListProcessed = computed(() => {
   const arr = [ ...mealIngredientsList.value ]

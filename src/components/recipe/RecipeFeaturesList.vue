@@ -1,7 +1,7 @@
 <template>
   <div class="features-list d-flex align-center">
     <div
-      v-for="item in props.features"
+      v-for="item in features"
       :key="item"
       class="feature text-md-caption-d text-caption pa-1"
     >
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-const props = defineProps({
+defineProps({
   features: {
     type: Array,
     required: true

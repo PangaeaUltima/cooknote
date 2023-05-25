@@ -39,24 +39,24 @@ $main-font-family: "Inter", sans-serif;
                 'text-transform': false
         ),
         'primary-medium': (
-                'size': 14px,
+                'size': 12px,
                 'weight': 500,
-                'line-height': 16px,
+                'line-height': 14px,
                 'letter-spacing': 0.02em,
                 'font-family': $main-font-family,
                 'text-transform': false
         ),
-        'secondary-bold-d': (
-                'size': 12px,
-                'weight': 700,
-                'line-height': 14px,
+        'body-d': (
+                'size': 16px,
+                'weight': 400,
+                'line-height': 20px,
                 'letter-spacing': 0.02em,
                 'font-family': $main-font-family,
                 'text-transform': false,
         ),
-        'secondary-bold': (
+        'body': (
                 'size': 12px,
-                'weight': 700,
+                'weight': 400,
                 'line-height': 14px,
                 'letter-spacing': 0.02em,
                 'font-family': $main-font-family,

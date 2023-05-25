@@ -17,7 +17,7 @@
             flat
             min-width="0"
             :size="mobile ? 'small' : 'default'"
-            @click="$emit('update:tableView', !props.tableView)"
+            @click="$emit('update:tableView', !tableView)"
           >
             <v-icon>
               mdi-grid-large
@@ -25,29 +25,18 @@
           </v-btn>
         </template>
       </v-tooltip>
-      <v-btn
-        class="text-md-btn-d text-btn"
-        color="primary"
-        flat
-        :size="mobile ? 'small' : 'default'"
-      >
-        <v-icon class="mr-2">
-          mdi-pen-plus
-        </v-icon>
-        <span>
-          Add new recipe
-        </span>
-      </v-btn>
+      <button-create-recipe />
     </div>
   </div>
 </template>
 
 <script setup>
+import ButtonCreateRecipe from '@/components/recipe/action/ButtonCreateRecipe.vue';
 import { useDisplay } from 'vuetify';
 
 const { mobile, xs } = useDisplay();
 
-const props = defineProps({
+defineProps({
   tableView: {
     type: Boolean,
     default:false,

@@ -18,6 +18,7 @@ import { useRoute } from 'vue-router';
 import AppLoading from '@/components/app/AppLoading.vue';
 import RecipeViewTitle from '@/components/recipe/view/RecipeViewTitle.vue';
 import RecipeViewItem from '@/components/recipe/view/RecipeViewItem.vue';
+import { handleError } from "@/plugins/errorHandler";
 
 const api = inject('api');
 const { params: routeParams } = useRoute();
@@ -37,7 +38,7 @@ const loadMealInfo = async () => {
       meal.value = data.meals[0]
     }
   } catch (e) {
-    console.log(e)
+    handleError(e)
   } finally {
     loading.value = false
   }
