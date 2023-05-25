@@ -45,16 +45,31 @@ onMounted(() => {
   loadRecipes('b');
 });
 
-watch(() => filters.search, (value) => {
-  loadRecipes(value);
+watch(() => filters.search, (newVal) => {
+  filters.category = null
+  filters.ingredient = null
+  
+  if (newVal) {
+    loadRecipes(newVal);
+  }
 });
 
-watch(() => filters.category, (value) => {
-  loadRecipes(null, value)
+watch(() => filters.category, (newVal) => {
+  filters.ingredient = null
+  filters.search = null
+  
+  if (newVal) {
+    loadRecipes(null, newVal);
+  }
 });
 
-watch(() => filters.ingredient, (value) => {
-  loadRecipes(null, null, value)
+watch(() => filters.ingredient, (newVal) => {
+  filters.category = null
+  filters.search = null
+  
+  if (newVal) {
+    loadRecipes(null, null, newVal);
+  }
 });
 
 const loadRecipes = debounce(async (title, category, ingredient) => {

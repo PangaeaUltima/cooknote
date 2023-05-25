@@ -94,26 +94,30 @@
         clearable
       />
       <div class="grid-buttons">
-        <v-btn
-          class="text-md-btn-d text-btn"
-          color="error"
-          block
-          flat
-          :size="mobile ? 'small' : 'default'"
-          @click="$emit('modal-hide')"
-        >
-          Cancel
-        </v-btn>
-        <v-btn
-          class="text-md-btn-d text-btn"
-          color="primary"
-          block
-          flat
-          :size="mobile ? 'small' : 'default'"
-          @click="createRecipe"
-        >
-          Submit
-        </v-btn>
+        <div class="relative">
+          <v-btn
+            class="text-md-btn-d text-btn"
+            color="error"
+            block
+            flat
+            :size="mobile ? 'small' : 'default'"
+            @click="$emit('modal-hide')"
+          >
+            Cancel
+          </v-btn>
+        </div>
+        <div class="relative">
+          <v-btn
+            class="text-md-btn-d text-btn"
+            color="primary"
+            block
+            flat
+            :size="mobile ? 'small' : 'default'"
+            @click="createRecipe"
+          >
+            Submit
+          </v-btn>
+        </div>
       </div> 
     </v-form>
   </div>
@@ -176,6 +180,7 @@ const removeIngredient = (ingredient) => {
 
 <style scoped lang="scss">
 .grid-ingredients, .grid-buttons {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 0 16px;

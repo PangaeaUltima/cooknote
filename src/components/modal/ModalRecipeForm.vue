@@ -46,5 +46,3 @@ const calcFormHeight = () => {
   modalContentMaxHeight.value = window.innerHeight * 0.75;
 };
 </script>
-
-<style lang="scss" scoped></style>

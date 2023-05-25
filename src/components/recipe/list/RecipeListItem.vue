@@ -68,8 +68,8 @@
             color="primary"
             class="text-md-btn-d text-btn"
             block
+            :to="`/recipe/${recipe.idMeal}`"
             :size="mobile ? 'small' : 'default'"
-            @click="openRecipePage(recipe.idMeal)"
           >
             Recipe page
           </v-btn>
@@ -83,7 +83,6 @@
 import RecipeFeaturesList from '@/components/recipe/RecipeFeaturesList.vue';
 import { computed, ref } from 'vue';
 import { useDisplay } from 'vuetify';
-import router from '@/router';
 
 const { mobile } = useDisplay()
 defineEmits(['show-modal-recipe'])
@@ -120,10 +119,6 @@ const recipeFeatures = computed(() => {
 
   return arr
 });
-
-const openRecipePage = (id) => {
-  router.push({ path: `/recipe/${id}`})
-};
 </script>
 
 <style lang="scss" scoped>
