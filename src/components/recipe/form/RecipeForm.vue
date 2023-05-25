@@ -143,7 +143,7 @@ let form = reactive({
 });
 const { notify }  = useNotification();
 const recipeForm = ref(null);
-const rules = reactive({
+const rules = ref({
   required,
 });
 
@@ -159,6 +159,7 @@ const createRecipe = async () => {
 
   if (valid) {
     if (form.images.length) {
+      console.log(form)
       notify({
         text: 'Recipe successfully created!',
         type: 'success bg-success text-white',
